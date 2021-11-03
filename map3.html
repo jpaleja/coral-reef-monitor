@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Coral Reef Monitor - Documenting Observations</title>
+    <script src="/var/www/html/user/leaflet-src.js"></script>
+    <link rel="stylesheet" href="/var/www/html/user/leaflet.css"/>
+    <link rel="stylesheet" href="/var/www/html/user/webapplicationpage.css" />	
+    <script src="/var/www/html/user/leaflet.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <script src="/var/www/html/user/Leaflet.draw.js"></script>
+    <script src="/var/www/html/user/Leaflet.Draw.Event.js"></script>
+    <link rel="stylesheet" href="/var/www/html/user/leaflet.draw.css"/>
+
+    <script src="/var/www/html/user/Toolbar.js"></script>
+    <script src="/var/www/html/user/Tooltip.js"></script>
+
+    <script src="/var/www/html/user/GeometryUtil.js"></script>
+    <script src="/var/www/html/user/LatLngUtil.js"></script>
+    <script src="/var/www/html/user/LineUtil.Intersect.js"></script>
+    <script src="/var/www/html/user/Polygon.Intersect.js"></script>
+    <script src="/var/www/html/user/Polyline.Intersect.js"></script>
+    <script src="/var/www/html/user/TouchEvents.js"></script>
+
+    <script src="/var/www/html/user/DrawToolbar.js"></script>
+    <script src="/var/www/html/user/Draw.Feature.js"></script>
+    <script src="/var/www/html/user/Draw.SimpleShape.js"></script>
+    <script src="/var/www/html/user/Draw.Polyline.js"></script>
+    <script src="/var/www/html/user/Draw.Marker.js"></script>
+    <script src="/var/www/html/user/Draw.Circle.js"></script>
+    <script src="/var/www/html/user/Draw.CircleMarker.js"></script>
+    <script src="/var/www/html/user/Draw.Polygon.js"></script>
+    <script src="/var/www/html/user/Draw.Rectangle.js"></script>
+
+
+    <script src="/var/www/html/user/EditToolbar.js"></script>
+    <script src="/var/www/html/user/EditToolbar.Edit.js"></script>
+    <script src="/var/www/html/user/EditToolbar.Delete.js"></script>
+
+    <script src="/var/www/html/user/Control.Draw.js"></script>
+
+    <script src="/var/www/html/user/Edit.Poly.js"></script>
+    <script src="/var/www/html/user/Edit.SimpleShape.js"></script>
+    <script src="/var/www/html/user/Edit.Rectangle.js"></script>
+    <script src="/var/www/html/user/Edit.Marker.js"></script>
+    <script src="/var/www/html/user/Edit.CircleMarker.js"></script>
+    <script src="/var/www/html/user/Edit.Circle.js"></script>
+
+</head>
+<body>
+<center><h1>Coral Reef Monitor</h1></center>
+<center><h3><a href="/var/www/html/user/homepage.html">Introduction</a> | 
+<a href="/var/www/html/user/map1.html">Locating Coral</a> |
+<a href="/var/www/html/user/map2.html">Evaluating Existing Coral Data</a> |
+Documenting Observations</h3><center/>
+<p style="text-align: left; margin: 20px">
+The final application was developed to provide further functions for the user to edit a layer on the map, helping them to contribute to the knowledge by sharing their observations and help to identify different coral and measure differences between them. Leaflet.draw was implemented in the program allowing the creation and editing of points, lines and polygons with the ability to add comments through a pop-up and also the ability to turn the editing function off with the Enable Editing tick box. Also, an export button was added which allows the export of the data created by the user as a geoJSON and latitude/longtitude search function was included. The dropdown zoom function was also brought back into the map following user feedback (scroll below the map to read further discussion).
+</p>
+<select id="search" onClick="draw();"></select> 
+<br>
+Latitude: <input type="text" name="lat" id="lat"/>
+Longitude: <input type="text" name="lng" id="lng"/>
+    <input type="button" onclick="zoomTo()" value="Locate Co-ordinates"/>
+<br>
+<div id="map"></div>
+<p style="text-align: left; margin: 20px">
+ As well as the development of new functionality in the map allowing the user to navigate, review and contribute to the map, the styling was devised in a way to understand and distinguish the layers, such as coral bleaching which was styled by severity level using a traffic light colour scheme. Furthermore, some styling for the clicked area was left in the script with full opacity to provide an easy changing of the styling in future. In comparing the initial interface design with the final submitted interface it has been noted that the overall functionality has been improved being more appropriate and fit for purpose. User feedback has revealed that the combination of basic map components such as a control box with advanced editing and the ability to search the map in multiple ways provides a good functionality to contribute knowledge to areas with gaps. Although the speed of the application was vastly improved by reducing the range of the geoJSON data sets, especially the use of the coral layer in the search drop down function, some components of the map were found to not be user friendly such as the positioning of the leaflet-container-box (Enable Editing and Export Features buttons).
+<br>
+<br>
+Although the application appears to be unique in a sense of the concept of contributing data through a public web app, many improvements and developments could be made to make the application more suitable and user friendly. More layers could be included in the map to provide a better context, whereas the process of having to export the geoJSON and then share it was found to not be a streamlined process in contributing the edited layers. This leads to the idea that a connection to a postgis database may be the next step in developing this application where the user edited data is directly saved into a core database where it can be reviewed prior to publishing on the application as a separate layer. Other future developments that could be made include utilising the towns layer to generate a function that calculates the distance to the nearest town from a clicked point on coral or a heatmap layer that highlights where users are contributing data and therefore may indicate further gaps in the data.
+</p>
+<div class="leaflet-control-container">
+<div class="leaflet-bottom leaflet-right">
+<div class="leaflet-control-layers leaflet-control-layers-expanded leaflet-control" aria-haspopup="true"><a class="leaflet-control-layers-toggle" href="#" title="Layers"></a>
+<div class=leaflet-control-layers-base"><label><a href='#' id='export'>Export Features</a></label></div>
+<div class="leaflet-control-layers-separator"></div>
+<div class="leaflet-control-layers-overlays"><label><div><input class="leaflet-control-layers-selector" checked="" type="checkbox"><span> Enable Editing</span></div>
+</label></div></form></div>
+<br>
+	<script type='text/javascript' src='/var/www/html/user/map3.js'></script>
+<br>
+<br>
+</body>
+</html>

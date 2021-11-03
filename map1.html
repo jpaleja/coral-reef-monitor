@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Coral Reef Monitor - Locating Coral</title>
+<link rel="stylesheet" type="text/css"
+	href="/var/www/html/user/leaflet.css" />
+<link rel="stylesheet" type="text/css"
+	href="/var/www/html/user/webapplicationpage.css" />	
+<script type='text/javascript'
+	src="/var/www/html/user/leaflet.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="/var/www/html/user/leaflet.geometryutil.js"></script>
+</head>
+<body>
+<center><h1>Coral Reef Monitor</h1></center>
+<center><h3><a href="/var/www/html/user/homepage.html">Introduction</a> | 
+Locating Coral |
+<a href="/var/www/html/user/map2.html">Evaluating Existing Coral Data</a> |
+<a href="/var/www/html/user/map3.html">Documenting Observations</a></h3><center/>
+<p style="text-align: left; margin: 20px">
+ The basic map layout chosen for the web application was wide with a smaller height due to the nature of coral existing at the equator therefore a more horizontally focused map was deemed more appropriate. The standard features of a map were included on the web application which were zoom buttons, a scale and attribution. The data in the map includes Google Satellite and Terrain tiles, towns from naturalearthdata.com, coral locations from the UNEP World Conservation Monitoring Centre (UNEP-WCMC) and coral bleaching from Reef Base, all which are able to be ticked on and off in the control box. A search function was implemented to provide an easy way for users to navigate existing data, however, with a dropdown of coral reef names and a zoom to function that takes the user to straight to the full extent of the coral reef. This was considered appropriate due to it being highly unlikely that users knowing the names and locations of many obscure coral reefs, therefore providing an easy way to locate them. Many of the coral reefs have unreported names which are shown in the list therefore demonstrate a good use example where data could be contributed by the user in the final application.
+</p>
+<select id="search" onClick="draw();"></select> 
+<br>
+	<div id="map"></div>
+<p style="text-align: left; margin: 20px">
+This functionality was built on to <a href="/var/www/html/user/map2.html">evaluate coral reef data>>>></a>
+	<script type='text/javascript' src='/var/www/html/user/map1.js'></script>
+</body>
+</html>

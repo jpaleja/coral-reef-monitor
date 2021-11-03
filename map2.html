@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Coral Reef Monitor - Evaluating Existing Coral Data</title>
+<link rel="stylesheet" type="text/css"
+	href="/var/www/html/user/leaflet.css" />
+<link rel="stylesheet" type="text/css"
+	href="/var/www/html/user/webapplicationpage.css" />	
+<script type='text/javascript'
+	src="/var/www/html/user/leaflet.js"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://npmcdn.com/@turf/turf/turf.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="https://unpkg.com/esri-leaflet@2.2.1/dist/esri-leaflet.js"
+		integrity="sha512-6BBVttv13OVrrUSoGmy9/aIVHateyIEGFaQxqnzCgXT9LNCAQ1Cxxj43R6Eq0ynydS7a7bLLfmEWwXFiO6lW2g=="
+		crossorigin=""></script>
+<script src="/var/www/html/user/leaflet.geometryutil.js"></script>
+</head>
+<body>
+<center><h1>Coral Reef Monitor</h1></center>
+<center><h3><a href="/var/www/html/user/homepage.html">Introduction</a> | 
+<a href="/var/www/html/user/map1.html">Locating Coral</a>  |
+Evaluating Existing Coral Data |
+<a href="/var/www/html/user/map3.html">Documenting Observations</a></h3></center>
+<p style="text-align: left; margin: 20px">
+To help users evaluate and navigate the data layers further than the initial design, functionality was added to provide a pop-up summary of all layers on a clicked point and a distance measuring tool to help identify different reefs and measure differences between them and their locations. The dropdown search and zoom in function was removed to generate different functionality. Marine mammal data from the International Union of Conservation of Nature and Natural Resources (IUCN) and EEZ polygons outlining the territory boundaries, clipped to the pilot East Africa area, were added to the map to provide additional data to test within the summary pop-up. However, with the marine mammals data, only the top most species appears in the pop-up due to the overlapping polygons (species ranges) in the same layer and although an ideal scenario could be where a list of the species in the clicked point are displayed, this functionality could not be developed in time. Additionally, the distance measuring function was not smooth and the calculation, generated below the map, was not accurate.
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-sm">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+
+	 <div class="panel panel-default panel-success">  
+	<!-- Default panel contents -->
+    <div class="panel-heading modalSpacing "   id="siteaddressTitle">Site Address</div>
+      <div class="modal-body">
+		                 
+            <span id="field1"></span><br> <hr>              
+            <span  id="field2"></span><br><hr>
+            <span id="field3"></span><br>
+      </div>
+     <div class="modal-footer"> 
+        <button type="button" class="btn btn-default" id="CloseMe" data-dismiss="modal">Close</button>
+      </div></div>
+    </div>
+  </div>
+</div>
+	<div id="map"></div>
+<p style="text-align: left; margin: 20px">
+Having tested new functionality, user feedback revealed an inaccurate map with limited functionality therefore looking towards building the final map, it was clear that more appropriate and interactive functionality had to be built to help the user <a href="/var/www/html/user/map3.html">contribute to coral reef data>>>></a>
+</p>
+	<script type='text/javascript' src='/var/www/html/user/map2.js'></script>
+</body>
+</html>
